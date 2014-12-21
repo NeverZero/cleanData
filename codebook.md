@@ -5,6 +5,7 @@ This file is the codebook that describes the dataset created by the run_analysis
 The original data used to produce the clean and tidy data set described in this codebook can be downloaded and unzipped locally into the R working directory by the following R code:
 
 download.file("http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",destfile="project.zip",mode="wb")
+
 unzip("project.zip") 
 
 This will create a directory called "UCI HAR Dataset" and subdirectories in the working directory. The original data of interest is broken into 2 main groups: "training" data from 70% of the total of 30 human subjects (21 people/subjects) and "test" data (for the remaining 9 subjects). Each subject is labelled with a number, 1-30. For each of the 30 subjects, there is data for each of six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS,
