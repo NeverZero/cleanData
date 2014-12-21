@@ -1,24 +1,8 @@
 ## run_analysis.R 
 ## Execution example: tidy<-run_analysis()
 ##
-## This script returns a tidy data set (data frame) based on data obtained 
-## from the website of the Center for Machine Learning and Intelligent Systems 
-## at the University of California, Irvine. The data source is a motion study: 
-## 		Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and 
-##		Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using 
-##		a Multiclass Hardware-Friendly Support Vector Machine. International 
-##		Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, 
-##		Spain. Dec 2012
-## This script assumes the data has been downloaded and unzipped in the 
-## working directory. As assigned for the Cousera "Getting and Cleaning Data" class
-## project, this script:
-## 		1. Merges the training and the test sets to create one data set.
-## 		2. Extracts only the measurements on the mean and standard deviation for 
-##    	   each measurement. 
-## 		3. Uses descriptive activity names to name the activities in the data set
-## 		4. Appropriately labels the data set with descriptive variable names. 
-## 		5. From the data set in step 4, creates a second, independent tidy data 
-##		   set with the average of each variable for each activity and each subject.
+## This script returns a tidy data set (data frame) as described in the README.md
+## file in the cleanData repo. 
 
 run_analysis<- function() {
 	# Read the training and test data with delimiter=whitespace and no header
@@ -59,6 +43,8 @@ run_analysis<- function() {
 	# Add the column names from the features.txt file to the dataset
 	# Remove the leading digits; not needed
 	feat<-gsub("[[:digit:]]{1,3}[[:blank:]]","",feat[,]) 
+	# Remove parentheses
+	feat<-gsub("\\(\\)","",feat)
 	names(data)<-feat
 	# Add a column for the subject labels on left
 	data<-cbind(subject,data)
